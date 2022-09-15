@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="2022.1">
+<AlteryxDocument yxmdVer="10.5">
   <Nodes>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="30" y="366" width="216" height="120" />
+        <Position x="24" y="186" width="216" height="156" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <Text>Input</Text>
-          <Font name="Microsoft Sans Serif" size="7.8" style="0" />
+          <Font name="Lato" size="7.8" style="0" />
           <TextColor name="Gray" />
           <FillColor name="White" />
           <Shape shape="0" />
@@ -23,12 +23,12 @@
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="462" y="222" width="216" height="156" />
+        <Position x="419" y="186" width="216" height="156" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <Text>Output</Text>
-          <Font name="Microsoft Sans Serif" size="7.8" style="0" />
+          <Font name="Lato" size="7.8" style="0" />
           <TextColor name="Gray" />
           <FillColor name="White" />
           <Shape shape="0" />
@@ -43,7 +43,7 @@
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="102" y="366" />
+        <Position x="54" y="234" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -18814,7 +18814,7 @@
     </Node>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="102" y="426" />
+        <Position x="138" y="234" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -18868,7 +18868,7 @@
     </Node>
     <Node ToolID="27">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="486" y="270" />
+        <Position x="450" y="234" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -18952,22 +18952,17 @@
     </Node>
     <Node ToolID="28">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="582" y="270" />
+        <Position x="546" y="234" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>D:\Temp\Engine_21028_ada409ce40604acdab7ad096719e3260_\Engine_11956_0e28d6dc2adc492eb035a50d62de2dae_.yxdb</TempFile>
-          <TempFileDataProfiling />
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_7492_7d8b582055d34c9d83577faf0982fa4a_\Engine_9692_9c6753ef334d4fb19156deab39939a7b_.yxdb</TempFile>
           <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
             <View1>
-              <DefaultTab>Profile</DefaultTab>
               <Hints>
                 <Table />
               </Hints>
             </View1>
-            <View2 />
           </Layout>
         </Configuration>
         <Annotation DisplayMode="0">
@@ -18980,7 +18975,7 @@
     </Node>
     <Node ToolID="29">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="54" y="54" width="324" height="72" />
+        <Position x="18" y="18" width="324" height="72" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -19001,7 +18996,7 @@
     </Node>
     <Node ToolID="30">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="450" y="70" width="300" height="40" />
+        <Position x="414" y="34" width="300" height="40" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -19021,7 +19016,7 @@
     </Node>
     <Node ToolID="31">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="59" y="114" width="612" height="96" />
+        <Position x="23" y="78" width="612" height="96" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -19042,46 +19037,8 @@ Each Customer Record needs to be joined to the Lookup table based on a Postal Ar
         </Annotation>
       </Properties>
     </Node>
-    <Node ToolID="32">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="258" y="414" />
-      </GuiSettings>
-      <Properties>
-        <Configuration joinByRecordPos="False">
-          <JoinInfo connection="Left">
-            <Field field="Postal Area" />
-          </JoinInfo>
-          <JoinInfo connection="Right">
-            <Field field="Range" />
-          </JoinInfo>
-          <SelectConfiguration>
-            <Configuration outputConnection="Join">
-              <OrderChanged value="False" />
-              <CommaDecimal value="False" />
-              <SelectFields>
-                <SelectField field="*Unknown" selected="True" />
-              </SelectFields>
-            </Configuration>
-          </SelectConfiguration>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
-    </Node>
   </Nodes>
   <Connections>
-    <Connection>
-      <Origin ToolID="13" Connection="Output" />
-      <Destination ToolID="32" Connection="Left" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="1" Connection="Output" />
-      <Destination ToolID="32" Connection="Right" />
-    </Connection>
     <Connection>
       <Origin ToolID="27" Connection="Output" />
       <Destination ToolID="28" Connection="Input" />
@@ -19097,7 +19054,6 @@ Each Customer Record needs to be joined to the Lookup table based on a Postal Ar
     <CancelOnError value="False" />
     <DisableBrowse value="False" />
     <EnablePerformanceProfiling value="False" />
-    <PredictiveToolsCodePage value="1252" />
     <DisableAllOutput value="False" />
     <ShowAllMacroMessages value="False" />
     <ShowConnectionStatusIsOn value="True" />
@@ -19106,7 +19062,7 @@ Each Customer Record needs to be joined to the Lookup table based on a Postal Ar
     <LayoutType>Horizontal</LayoutType>
     <MetaInfo>
       <NameIsFileName value="True" />
-      <Name>challenge_1_core</Name>
+      <Name>challenge_1_start_file</Name>
       <Description />
       <RootToolName />
       <ToolVersion />
@@ -19117,15 +19073,6 @@ Each Customer Record needs to be joined to the Lookup table based on a Postal Ar
       <Company />
       <Copyright />
       <DescriptionLink actual="" displayed="" />
-      <Example>
-        <Description />
-        <File />
-      </Example>
-      <WorkflowId value="48c75237-5dbb-47f4-a9d5-c9b6b3e283b4" />
-      <Telemetry>
-        <PreviousWorkflowId value="" />
-        <OriginWorkflowId value="48c75237-5dbb-47f4-a9d5-c9b6b3e283b4" />
-      </Telemetry>
     </MetaInfo>
     <Events>
       <Enabled value="True" />
