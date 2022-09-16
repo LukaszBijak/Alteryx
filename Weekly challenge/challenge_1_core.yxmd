@@ -18956,7 +18956,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>D:\Temp\Engine_21028_ada409ce40604acdab7ad096719e3260_\Engine_11956_0e28d6dc2adc492eb035a50d62de2dae_.yxdb</TempFile>
+          <TempFile>D:\Temp\Engine_21324_9ad4e8b5ac2349f8b876a59fb3123859_\Engine_11956_262195c293894754af8766e2e1b1b09e_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -19006,7 +19006,7 @@
       <Properties>
         <Configuration>
           <Text>Weekly Challenge #1</Text>
-          <Font name="Lato" size="16.2" style="0" />
+          <Font name="Microsoft Sans Serif" size="16.2" style="0" />
           <TextColor name="Gray" />
           <FillColor name="White" />
           <Shape shape="3" />
@@ -19042,23 +19042,43 @@ Each Customer Record needs to be joined to the Lookup table based on a Postal Ar
         </Annotation>
       </Properties>
     </Node>
-    <Node ToolID="32">
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="258" y="366" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF [Postal Area] &lt;= 2019 THEN 'R1' &#xA;ELSEIF [Postal Area] &lt;= 2039 THEN 'R2' &#xA;ELSEIF [Postal Area] &lt;= 2059 THEN 'R3'&#xA;ELSEIF [Postal Area] &lt;= 2079 THEN 'R4'&#xA;ELSEIF [Postal Area] &lt;= 2100 THEN 'R5'&#xA;ELSE Null() ENDIF" field="Region" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Region = IF [Postal Area] &lt;= 2019 THEN 'R1' 
+ELSEIF [Postal Area] &lt;= 2039 THEN '...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="34">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="258" y="414" />
+        <Position x="366" y="414" />
       </GuiSettings>
       <Properties>
         <Configuration joinByRecordPos="False">
           <JoinInfo connection="Left">
-            <Field field="Postal Area" />
+            <Field field="Region" />
           </JoinInfo>
           <JoinInfo connection="Right">
-            <Field field="Range" />
+            <Field field="Region" />
           </JoinInfo>
           <SelectConfiguration>
             <Configuration outputConnection="Join">
               <OrderChanged value="False" />
               <CommaDecimal value="False" />
               <SelectFields>
+                <SelectField field="Right_Region" selected="True" rename="Right_Region" input="Right_" />
                 <SelectField field="*Unknown" selected="True" />
               </SelectFields>
             </Configuration>
@@ -19072,19 +19092,80 @@ Each Customer Record needs to be joined to the Lookup table based on a Postal Ar
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
     </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="498" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="Region" action="GroupBy" rename="Region" />
+            <SummarizeField field="Sales Rep" action="GroupBy" rename="Sales Rep" />
+            <SummarizeField field="Responder" action="GroupBy" rename="Responder" />
+            <SummarizeField field="Customer ID" action="Count" rename="Count" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="36">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="606" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>D:\Temp\Engine_21324_9ad4e8b5ac2349f8b876a59fb3123859_\Engine_11956_41c1a13e86a24b5f96393994832b6657_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
       <Origin ToolID="13" Connection="Output" />
-      <Destination ToolID="32" Connection="Left" />
+      <Destination ToolID="33" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="1" Connection="Output" />
-      <Destination ToolID="32" Connection="Right" />
+      <Destination ToolID="34" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="34" Connection="Left" />
     </Connection>
     <Connection>
       <Origin ToolID="27" Connection="Output" />
       <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="34" Connection="Join" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="36" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
