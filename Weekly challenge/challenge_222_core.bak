@@ -27163,7 +27163,7 @@ Query=`Sheet1$`</DefaultAnnotationText>
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>D:\Temp\Engine_24552_373348b6bc1b4f3393b3a0f09e073cc7_\Engine_11956_78b3101c078141008f2b39f036a7041b_.yxdb</TempFile>
+          <TempFile>D:\Temp\Engine_29980_5cf96ade1c414970b47073ae31206266_\Engine_11956_f228cb371e0d4a3bb7dbb534e8302b68_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -27670,32 +27670,6 @@ AND
       </Properties>
       <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
     </Node>
-    <Node ToolID="72">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="906" y="654" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <File FileFormat="19" MaxRecords="">.\tst</File>
-          <Passwords />
-          <FormatSpecificOptions>
-            <NoSpatialIndex>False</NoSpatialIndex>
-            <SaveSource>True</SaveSource>
-            <WriteCompatibleVersion>False</WriteCompatibleVersion>
-          </FormatSpecificOptions>
-          <MultiFile value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>tst</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
-    </Node>
     <Node ToolID="40">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
         <Position x="164" y="1040" width="656" height="84" />
@@ -27769,10 +27743,6 @@ AND
     <Connection>
       <Origin ToolID="70" Connection="Output" />
       <Destination ToolID="71" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="71" Connection="Output" />
-      <Destination ToolID="72" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
